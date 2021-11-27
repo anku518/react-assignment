@@ -1,9 +1,9 @@
 import { React, useEffect, useState } from "react";
 import { useParams } from 'react-router-dom'
-import Post from "./Post";
+import Blog from "./Blog";
 import axios from 'axios';
 
-function PostDetails(props) {
+function BlogDetails(props) {
     const { postId } = useParams();
 
     const [postDetails, setPostDetails] = useState({})
@@ -23,12 +23,12 @@ function PostDetails(props) {
 
 
     return (
-        <div className="postContainer">
+        <div className="blogDisplay">
             {
-                postDetails ? <Post postData={postDetails}></Post> : ""
+                postDetails ? <Blog postData={postDetails}></Blog> : ""
             }
         </div>
     )
 }
 
-export default PostDetails;
+export default BlogDetails;

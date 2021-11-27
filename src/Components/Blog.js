@@ -1,27 +1,27 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Post(props) {
+function Blog(props) {
 
     return (
-        <div className="card">
+        <div className="details">
             <h1>
                 <Link to={`/post-details/${props.postData.id}`}>{props.postData.text}</Link>
             </h1>
 
 
-            <div className="post-foot">
-                <div className="fakeimg"><img src={props.postData.image} alt={props.postData.text} srcSet="" /></div>
+            <div className="postDetails">
+                <div className="image"><img src={props.postData.image} alt={props.postData.text} srcSet="" /></div>
                 {props.postData.tags ?
                     props.postData.tags.forEach(tag => {
                         <span className="pill">{tag}</span>
                     }) : ""
                 }
-                <p style={{ padding: "30px" }}> <b>Lorem ipsum - </b> Dolor sit amet, consectetuer adipiscing elit. Nullam <em>dictum</em> felis eu pede mollis pretium. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. <br/> Aenean <em>commodo ligula</em> eget dolor. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla <b>consequat massa</b> quis enim.</p>
+                <p style={{ padding: "30px" }}>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now. When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface.</p>
             </div>
             <hr />
             <span style={{ display: "flex", justifyContent: "flex-end" }}>
-                <p className="post-date">{new Date(props.postData.publishDate).toLocaleTimeString() + ' ' + new Date(props.postData.publishDate).toLocaleDateString()}</p>
+                <p className="postData">{new Date(props.postData.publishDate).toLocaleTimeString() + ' ' + new Date(props.postData.publishDate).toLocaleDateString()}</p>
                 <span className="auth-img">
                     {
                         props.postData.owner ?
@@ -41,4 +41,4 @@ function Post(props) {
     )
 }
 
-export default Post
+export default Blog

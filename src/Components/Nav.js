@@ -16,13 +16,14 @@ function Nav() {
             })
     }, [])
 
+
     return (
         <nav>
             <Link to = "/">
                 <h4 className='mainPage'>Main Page</h4>
             </Link>
             <ul className="newsSection">
-				<h3>News Headlines</h3>
+				<h3><b>Tech Crunch News Headlines</b></h3>
                 {
                     (news && news.length > 0) ?
                         news.map(nws => {
@@ -31,8 +32,9 @@ function Nav() {
                                     <h4><b><u>{nws.title}</u></b></h4>
                                     <h4><u>Source: </u>{nws.source.name}</h4>
                                     <h4><u>Publish: </u>{nws.publishedAt}</h4>
-                                    <p>{nws.content}</p>
-                                    <p>URL: {nws.url}</p>
+                                    <p>
+										<a href={nws.url} target="_blank">Link to the source page</a>
+									</p>
                                 </li>
                             )
                         }) :

@@ -1,5 +1,5 @@
 import React from 'react'
-import Post from './Post'
+import Blog from './Blog'
 
 function Main(props) {
 
@@ -9,11 +9,11 @@ function Main(props) {
 
     return (
         <main>
-            <div className="blog-container">
+            <div className="mainContainer">
                 {
                     props.posts.length > 0 ?
                         props.posts.map(post => {
-                            return <Post postData={post} ></Post>
+                            return <Blog postData={post} ></Blog>
                         })
                         : ""
                 }
