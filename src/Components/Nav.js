@@ -15,6 +15,14 @@ function Nav() {
                 setNews(oldData => res.data.articles)
             })
     }, [])
+	
+	//ajax call to referesh news every five seconds
+	const timer = setTimeout(() => {
+            fetchData();
+        }, 5000);
+
+        return () => clearTimeout(timer);
+    }, [])
 
 
     return (
