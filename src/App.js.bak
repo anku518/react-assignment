@@ -1,0 +1,48 @@
+import './App.css';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import Main from './Components/Main';
+import Nav from './Components/Nav';
+import PostDetails from './Components/PostDetails';
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+function App() {
+
+  const [posts, setPosts] = useState({});
+
+  useEffect(() => {
+    return fetch('https://dummyapi.io/data/v1/tag/water/post?limit=5', {
+      
+    }).then(data => {
+      data.json().then(p => {
+        setPosts(oldPosts => {
+          return p.data
+        })
+      })
+    })
+  }, [])
+
+  return (
+    <Router>
+      <div className="App">
+        <Header></Header>
+        <section className="mainbody">
+          <Switch>
+            <Route path="/" exact={true}>
+              <Main posts={posts}>
+              </Main>
+            </Route>
+            <Route path="/post-details/:postId" exact={true}>
+              <PostDetails/>
+            </Route>
+          </Switch>
+          <Nav></Nav>
+        </section>
+        <Footer></Footer>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
